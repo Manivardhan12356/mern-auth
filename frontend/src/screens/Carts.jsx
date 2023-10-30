@@ -28,7 +28,7 @@ const Carts = () => {
          await axios.delete(`http://localhost:8000/api/users/carts/${id}`);
          const updatedCart = cartItems.filter((item) => item.id !== id);
          setCartItems(updatedCart);
-         toast.success("cart item deleted successfully")
+         toast.warning("cart item deleted successfully")
       } catch (error) {
          console.error('Error deleting cart item:', error);
       }
