@@ -11,11 +11,6 @@ dotenv.config();
 
 const port = process.env.PORT || 5000;
 
-// Check essential environment variables
-if (!process.env.MONGO_URL) {
-   console.error('MongoDB connection URL is not provided.');
-   process.exit(1);
-}
 
 connectDB(); // Connect to the MongoDB database
 
