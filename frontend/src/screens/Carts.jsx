@@ -9,9 +9,11 @@ import Typography from '@mui/material/Typography';
 import { LinkContainer } from 'react-router-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { toast } from 'react-toastify';
+import Loader from '../components/Loader';
 
 const Carts = () => {
    const [cartItems, setCartItems] = useState([]);
+   const [loading, setLoading] = useState(true);
 
    const fetchCarts = async () => {
       try {
@@ -38,6 +40,7 @@ const Carts = () => {
       const fetchCartData = async () => {
          const data = await fetchCarts();
          setCartItems(data);
+         setLoading(false); 
       };
 
       fetchCartData();
@@ -53,6 +56,7 @@ const Carts = () => {
          </div>
          <div>
             <div className='flex gap-4 flex-wrap items-center justify-center'>
+               {loading && <Loader/>}
                {cartItems.length === 0 ? (
                   <p>No items in the cart</p>
                ) : (
