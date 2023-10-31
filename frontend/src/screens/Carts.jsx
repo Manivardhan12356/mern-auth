@@ -17,7 +17,7 @@ const Carts = () => {
 
    const fetchCarts = async () => {
       try {
-         const res = await axios.get('https://ecommerce-mern-t1pz.onrender.com/api/users/carts');
+         const res = await axios.get('http://localhost:8000/api/users/carts');
          return res.data;
       } catch (error) {
          console.error('Error fetching cart items:', error);
@@ -27,7 +27,7 @@ const Carts = () => {
 
    const deleteCartItem = async (id) => {
       try {
-         await axios.delete(`https://ecommerce-mern-t1pz.onrender.com/api/users/carts/${id}`);
+         await axios.delete(`http://localhost:8000/api/users/carts/${id}`);
          const updatedCart = cartItems.filter((item) => item.id !== id);
          setCartItems(updatedCart);
          toast.warning("cart item deleted successfully")

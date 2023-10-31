@@ -34,7 +34,7 @@ const Products = () => {
 
   const Addtocart = async (product) => {
     try {
-      const response = await axios.post('https://ecommerce-mern-t1pz.onrender.com/api/users/carts', product);
+      const response = await axios.post('http://localhost:8000/api/users/carts', product);
       if (response.status === 200) {
        
         dispatch(addItem(product));
