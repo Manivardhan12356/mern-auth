@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from '../slices/userApiSlice';
 import { logout } from '../slices/authSlice'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Header = () => {
    const { userInfo } = useSelector((state) => state.auth);
@@ -16,6 +17,7 @@ const Header = () => {
          await logoutApiCall().unwrap();
          dispatch(logout());
          navigate('/');
+         toast.success("logout successfully completed")
       } catch (error) {
          console.log(error)
       }
